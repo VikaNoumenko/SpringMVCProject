@@ -31,8 +31,8 @@ public class ChatController {
 
 
         @RequestMapping(value = "chat/ftl", method = RequestMethod.GET)
-        public String findAll(@ModelAttribute("model")ModelMap model) {
-            List<Chat> chats = chatService.findAll();
+        public String getAll(@ModelAttribute("model")ModelMap model) {
+            List<Chat> chats = chatService.getAll();
             model.addAttribute("chatModel", chats);
             return "chatView";
         }

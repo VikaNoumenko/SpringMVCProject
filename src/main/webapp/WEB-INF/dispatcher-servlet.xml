@@ -40,6 +40,6 @@
         <!--<property name="suffix" value=".jsp"/>-->
     <!--</bean>-->
 
-    <bean name="/simple/users" class="controllers.ChatController"/>
-    <bean name="/simple/autos" class="controllers.MessageController"/>
+    <bean name="ChatController" class="controllers.ChatController"/>
+    <bean name="MessageController" class="controllers.MessageController"/>
 </beans>
