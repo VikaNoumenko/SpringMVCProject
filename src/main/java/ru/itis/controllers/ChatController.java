@@ -5,36 +5,34 @@ ChatController @author Victoria Noumenko
 import models.Chat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.ui.ModelMap;
-import services.ChatService;
+
+import ru.itis.services.ChatService;
 
 import java.util.List;
-
-import static javax.swing.text.StyleConstants.ModelAttribute;
 
 @Controller("chatControllerAnnotation")
 public class ChatController {
 
     @Autowired
-    private ChatService chatService;
+    ChatService chatService;
 
-    @RequestMapping(value = "/chat/jsp", method = RequestMethod.GET)
+    @RequestMapping(value = "/viws/jsp/chatView", method = RequestMethod.POST)
     public ModelAndView getAll() {
         ModelAndView result = new ModelAndView("chatView");
-        List<Chat> chats = chatService.findAll();
-        result.addObject("chatModel", chats);
+        List<Chat> chat = chatService.findAll();
+        result.addObject("chatModel", chat);
         return result;
+    }
 
-
-        @RequestMapping(value = "chat/ftl", method = RequestMethod.GET)
-        public String getAll(@ModelAttribute("model")ModelMap model) {
-            List<Chat> chats = chatService.getAll();
-            model.addAttribute("chatModel", chats);
-            return "chatView";
-        }
+    @RequestMapping(value = "/views/ftl/chatView", method = RequestMethod.POST)
+    public String getAll(@ModelAttribute("model")ModelMap model) {
+        List<Chat> chats = chatService.findAll();
+        model.addAttribute("chatModel", chats);
+        return "chatView";
     }
 }

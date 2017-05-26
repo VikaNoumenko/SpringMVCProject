@@ -3,12 +3,16 @@ package services.impl;
 
 import dao.ChatDao;
 import models.Chat;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import services.ChatService;
 
 import java.util.List;
 
+@Service
 public class ChatServiceImpl implements ChatService {
 
+    @Autowired
     private ChatDao chatDao;
 
     public ChatServiceImpl(ChatDao chatDao) {

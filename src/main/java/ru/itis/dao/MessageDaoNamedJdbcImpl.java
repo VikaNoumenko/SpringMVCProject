@@ -3,11 +3,13 @@ package dao;
 import models.Chat;
 import models.Message;
 import models.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
+import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
 import java.sql.ResultSet;
@@ -16,7 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
+@Repository
 public class MessageDaoNamedJdbcImpl implements MessageDao {
     //language=SQL
     private static final String SQL_SAVE = "INSERT INTO message(text, chat_id, author_id) VALUES (:text, :chat, :author)";
@@ -36,6 +38,7 @@ public class MessageDaoNamedJdbcImpl implements MessageDao {
     private UsersDao usersDao;
     private ChatDao chatDao;
 
+    @Autowired
     public MessageDaoNamedJdbcImpl(DataSource dataSource) {
         this.namedParameterTemplate = new NamedParameterJdbcTemplate(dataSource);
     }
