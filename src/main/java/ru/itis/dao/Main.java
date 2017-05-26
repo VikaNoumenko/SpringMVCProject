@@ -1,6 +1,6 @@
-package dao;
+package ru.itis.dao;
 
-import models.Chat;
+import ru.itis.models.Chat;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

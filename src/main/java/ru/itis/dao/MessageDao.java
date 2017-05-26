@@ -1,6 +1,6 @@
-package dao;
+package ru.itis.dao;
 
-import models.Message;
+import ru.itis.models.Message;
 
 import java.util.List;
 

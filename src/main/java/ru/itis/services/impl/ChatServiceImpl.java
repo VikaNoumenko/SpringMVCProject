@@ -1,11 +1,11 @@
-package services.impl;
+package ru.itis.services.impl;
 
 
-import dao.ChatDao;
-import models.Chat;
+import ru.itis.dao.ChatDao;
+import ru.itis.models.Chat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import services.ChatService;
+import ru.itis.services.ChatService;
 
 import java.util.List;
 

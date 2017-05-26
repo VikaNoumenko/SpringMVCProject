@@ -1,6 +1,6 @@
-package dao;
+package ru.itis.dao;
 
-import models.Chat;
+import ru.itis.models.Chat;
 
 public interface ChatDao extends BaseDao<Chat> {
 

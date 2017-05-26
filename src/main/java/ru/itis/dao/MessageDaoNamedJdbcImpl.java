@@ -1,8 +1,8 @@
-package dao;
+package ru.itis.dao;
 
-import models.Chat;
-import models.Message;
-import models.User;
+import ru.itis.models.Chat;
+import ru.itis.models.Message;
+import ru.itis.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;

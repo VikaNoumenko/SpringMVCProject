@@ -1,7 +1,7 @@
-package dao.test;
+package ru.itis.dao.test;
 
-import dao.ChatDaoNamedJdbcImpl;
-import models.Chat;
+import ru.itis.dao.ChatDaoNamedJdbcImpl;
+import ru.itis.models.Chat;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.support.GenericXmlApplicationContext;
@@ -11,7 +11,6 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 
 public class ChatDaoNamedJdbcImplTest {

@@ -1,6 +1,6 @@
-package services;
+package ru.itis.services;
 
-import models.Message;
+import ru.itis.models.Message;
 
 import java.util.List;
 

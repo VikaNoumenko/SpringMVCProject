@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="best_online_service_db@localhost">
+  <database-model serializer="dbm" rdbms="POSTGRES" format-version="4.1">
+    <root id="1"/>
+    <database id="2" parent="1" name="best_online_service_db">
+      <ObjectId>24722</ObjectId>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </database>
+    <schema id="3" parent="2" name="public">
+      <ObjectId>2200</ObjectId>
+      <IntrospectionTimestamp>2017-05-26.16:30:32.496</IntrospectionTimestamp>
+      <IntrospectionStateNumber>695</IntrospectionStateNumber>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="4" parent="2" name="pg_catalog">
+      <ObjectId>11</ObjectId>
+    </schema>
+    <schema id="5" parent="2" name="pg_toast">
+      <ObjectId>99</ObjectId>
+    </schema>
+    <schema id="6" parent="2" name="pg_temp_1">
+      <ObjectId>11848</ObjectId>
+    </schema>
+    <schema id="7" parent="2" name="pg_toast_temp_1">
+      <ObjectId>11849</ObjectId>
+    </schema>
+    <schema id="8" parent="2" name="information_schema">
+      <ObjectId>12113</ObjectId>
+    </schema>
+    <sequence id="9" parent="3" name="chat_id_seq">
+      <ObjectId>24868</ObjectId>
+      <StateNumber>693</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="10" parent="3" name="message_id_seq">
+      <ObjectId>24894</ObjectId>
+      <StateNumber>695</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="11" parent="3" name="service_user_id_seq">
+      <ObjectId>24859</ObjectId>
+      <StateNumber>691</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <table id="12" parent="3" name="chat">
+      <ObjectId>24870</ObjectId>
+      <StateNumber>695</StateNumber>
+    </table>
+    <table id="13" parent="3" name="chat_user">
+      <ObjectId>24881</ObjectId>
+      <StateNumber>694</StateNumber>
+    </table>
+    <table id="14" parent="3" name="message">
+      <ObjectId>24896</ObjectId>
+      <StateNumber>695</StateNumber>
+    </table>
+    <table id="15" parent="3" name="service_user">
+      <ObjectId>24861</ObjectId>
+      <StateNumber>695</StateNumber>
+    </table>
+    <column id="16" parent="12" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>693</StateNumber>
+      <SequenceName>chat_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;chat_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="17" parent="12" name="creator_id">
+      <Position>2</Position>
+      <DataType>integer|0</DataType>
+      <StateNumber>693</StateNumber>
+    </column>
+    <column id="18" parent="12" name="name">
+      <Position>3</Position>
+      <DataType>varchar(20)|0</DataType>
+      <StateNumber>693</StateNumber>
+    </column>
+    <index id="19" parent="12" name="chat_pkey">
+      <ObjectId>24874</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="20" parent="12" name="chat_pkey">
+      <ObjectId>24875</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>chat_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="21" parent="12" name="chat_creator_id_fkey">
+      <ObjectId>24876</ObjectId>
+      <ColNames>creator_id</ColNames>
+      <RefTableName>service_user</RefTableName>
+      <RefKeyName>service_user_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="22" parent="13" name="chat_id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <StateNumber>694</StateNumber>
+    </column>
+    <column id="23" parent="13" name="user_id">
+      <Position>2</Position>
+      <DataType>integer|0</DataType>
+      <StateNumber>694</StateNumber>
+    </column>
+    <foreign-key id="24" parent="13" name="chat_user_chat_id_fkey">
+      <ObjectId>24884</ObjectId>
+      <ColNames>chat_id</ColNames>
+      <RefTableName>chat</RefTableName>
+      <RefKeyName>chat_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="25" parent="13" name="chat_user_user_id_fkey">
+      <ObjectId>24889</ObjectId>
+      <ColNames>user_id</ColNames>
+      <RefTableName>service_user</RefTableName>
+      <RefKeyName>service_user_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="26" parent="14" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>695</StateNumber>
+      <SequenceName>message_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;message_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="27" parent="14" name="text">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <StateNumber>695</StateNumber>
+    </column>
+    <column id="28" parent="14" name="chat_id">
+      <Position>3</Position>
+      <DataType>integer|0</DataType>
+      <StateNumber>695</StateNumber>
+    </column>
+    <column id="29" parent="14" name="author_id">
+      <Position>4</Position>
+      <DataType>integer|0</DataType>
+      <StateNumber>695</StateNumber>
+    </column>
+    <index id="30" parent="14" name="message_pkey">
+      <ObjectId>24900</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="31" parent="14" name="message_pkey">
+      <ObjectId>24901</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>message_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="32" parent="14" name="message_chat_id_fkey">
+      <ObjectId>24902</ObjectId>
+      <ColNames>chat_id</ColNames>
+      <RefTableName>chat</RefTableName>
+      <RefKeyName>chat_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="33" parent="14" name="message_author_id_fkey">
+      <ObjectId>24907</ObjectId>
+      <ColNames>author_id</ColNames>
+      <RefTableName>service_user</RefTableName>
+      <RefKeyName>service_user_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="34" parent="15" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>691</StateNumber>
+      <SequenceName>service_user_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;service_user_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="35" parent="15" name="login">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <StateNumber>691</StateNumber>
+    </column>
+    <column id="36" parent="15" name="password">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+      <StateNumber>691</StateNumber>
+    </column>
+    <column id="37" parent="15" name="name">
+      <Position>4</Position>
+      <DataType>varchar(50)|0</DataType>
+      <StateNumber>691</StateNumber>
+    </column>
+    <column id="38" parent="15" name="age">
+      <Position>5</Position>
+      <DataType>integer|0</DataType>
+      <StateNumber>691</StateNumber>
+    </column>
+    <index id="39" parent="15" name="service_user_pkey">
+      <ObjectId>24865</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="40" parent="15" name="service_user_pkey">
+      <ObjectId>24866</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>service_user_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>

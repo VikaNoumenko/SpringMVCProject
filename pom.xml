@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ru.itis</groupId>
-    <artifactId>spring-mvc-project</artifactId>
-    <version>1.0</version>
+    <artifactId>spring-mvc-exmaple</artifactId>
+    <version>0.1</version>
 
     <build>
         <plugins>
@@ -94,4 +94,5 @@
         </dependency>
 
     </dependencies>
+
 </project>

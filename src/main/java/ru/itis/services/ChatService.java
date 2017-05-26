@@ -1,6 +1,6 @@
-package services;
+package ru.itis.services;
 
-import models.Chat;
+import ru.itis.models.Chat;
 
 import java.util.List;
 

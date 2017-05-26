@@ -1,8 +1,8 @@
-package controllers;/* 24.05.2017
+package ru.itis.controllers;/* 24.05.2017
 ChatController @author Victoria Noumenko 
 @version v1.0 */
 
-import models.Chat;
+import ru.itis.models.Chat;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -21,7 +21,7 @@ public class ChatController {
     @Autowired
     ChatService chatService;
 
-    @RequestMapping(value = "/viws/jsp/chatView", method = RequestMethod.POST)
+    @RequestMapping(value = "/views/jsp/chatView", method = RequestMethod.GET)
     public ModelAndView getAll() {
         ModelAndView result = new ModelAndView("chatView");
         List<Chat> chat = chatService.findAll();
@@ -29,7 +29,7 @@ public class ChatController {
         return result;
     }
 
-    @RequestMapping(value = "/views/ftl/chatView", method = RequestMethod.POST)
+    @RequestMapping(value = "/views/ftl/chatView", method = RequestMethod.GET)
     public String getAll(@ModelAttribute("model")ModelMap model) {
         List<Chat> chats = chatService.findAll();
         model.addAttribute("chatModel", chats);

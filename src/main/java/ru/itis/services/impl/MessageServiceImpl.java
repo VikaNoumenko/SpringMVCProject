@@ -1,10 +1,10 @@
-package services.impl;
+package ru.itis.services.impl;
 
-import dao.MessageDao;
-import models.Message;
+import ru.itis.dao.MessageDao;
+import ru.itis.models.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import services.MessageService;
+import ru.itis.services.MessageService;
 
 import java.util.List;
 
